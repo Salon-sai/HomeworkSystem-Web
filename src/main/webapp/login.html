@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>login.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	
+	<script type="text/javascript">
+		
+		checkLogin = function(){
+			var id = $('#ID').val() ;
+			var password = $('#password').val() ;
+			$.post('login/checkLogin.action',
+					{IDNum : id, password : password},
+					function(returnData, status){
+						if(returnData.returnMsg == null){
+							window.location.href="login/LoginUser.action?typeName="+returnData.typeName ;
+						}else{
+							updateValidate(returnData.returnMsg) ;
+						}
+					});
+		} ;
+		
+		function updateValidate(text){
+			$('.validate').text(text)
+				.addClass("wrong");
+				setTimeout(function(){
+					$('.validate').removeClass("wrong",500);
+				},50);
+		};
+		
+	</script>	
+
+  </head>
+  
+  <body>
+  	<div class="top"></div>
+  	<div class="center-background">
+    <div class="container">
+    	<div class="login">
+    		<h1>Login to Homework System</h1>
+    		<form>
+    			<p><input type="text" id="ID" placeholder="StudentID or TeacherID"/></p>
+    			<p><input type="password" id="password" placeholder="Password"/></p>
+    			<p class="validate"></p>
+    			<p class="submit">
+    				<input type="button" name="commit" value="Login" onclick="checkLogin();"/>
+    			</p>
+    		</form>
+    	</div>
+    </div>
+    </div>
+  </body>
+</html>
