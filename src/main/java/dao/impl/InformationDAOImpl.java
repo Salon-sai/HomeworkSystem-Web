@@ -4,9 +4,8 @@ import java.util.List;
 
 import model.Information;
 
+import org.apache.log4j.Logger;
 import org.hibernate.LockMode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 
 import dao.AbstractInfomationDAO;
@@ -24,7 +23,7 @@ import dao.AbstractInfomationDAO;
  */
 
 public class InformationDAOImpl extends AbstractInfomationDAO {
-	private static final Logger log = LoggerFactory
+	private static final Logger log = Logger
 			.getLogger(InformationDAOImpl.class);
 	// property constants
 	

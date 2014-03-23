@@ -4,9 +4,8 @@ import java.util.List;
 
 import model.User;
 
+import org.apache.log4j.Logger;
 import org.hibernate.LockMode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 
 import dao.AbstractUserDAO;
@@ -24,7 +23,7 @@ import dao.AbstractUserDAO;
  */
 
 public class UserDAOImpl extends AbstractUserDAO {
-	private static final Logger log = LoggerFactory.getLogger(UserDAOImpl.class);
+	private static final Logger log = Logger.getLogger(UserDAOImpl.class);
 	// property constants
 	public static final String NAME = "name";
 	public static final String PASSWORD = "password";

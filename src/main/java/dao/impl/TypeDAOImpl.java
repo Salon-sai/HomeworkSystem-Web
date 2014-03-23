@@ -4,9 +4,8 @@ import java.util.List;
 
 import model.Type;
 
+import org.apache.log4j.Logger;
 import org.hibernate.LockMode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 
 import dao.AbstractTypeDAO;
@@ -24,7 +23,7 @@ import dao.AbstractTypeDAO;
  */
 
 public class TypeDAOImpl extends AbstractTypeDAO {
-	private static final Logger log = LoggerFactory.getLogger(TypeDAOImpl.class);
+	private static final Logger log = Logger.getLogger(TypeDAOImpl.class);
 	// property constants
 	public static final String NAME = "name";
 
